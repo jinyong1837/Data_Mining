@@ -80,6 +80,11 @@ def get_player_info(result, urls, eval):
             value = height_and_age[5].select("span")
             temp.append(value[0].string)
             
+            # 선수 출전 시간 가져오기
+            time = source[1]
+            time = time.select("div.css-170fd60-StatValue.e1ahduwc5 > span")
+            temp.append(time[4].string)
+            
             # 선수 기록 가져오기
             stats = source[3]
             records = stats.select("div.css-17zw5kc-StatCSS.e1uibvo13 > div.css-jb6lgd-StatValue.e1uibvo12 > span")
